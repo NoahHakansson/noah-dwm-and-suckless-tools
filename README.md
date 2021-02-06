@@ -1,4 +1,4 @@
-# noah-dwm-and-suckless-tools, "Version 1.0"
+# noah-dwm-and-suckless-tools, "Version 1.0.0"
 
 Personal startup file include: (uses dwm autostart patch)
 

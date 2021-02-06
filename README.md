@@ -1,6 +1,6 @@
 # noah-dwm-and-suckless-tools
 
-Personal configuratio files include:
+Personal startup file include: (uses dwm autostart patch)
 
 ~/.dwm/autostart.sh
 Contains:

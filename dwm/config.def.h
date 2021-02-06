@@ -59,7 +59,7 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-static const char dmenuWidth[4] = "944";
+static const char dmenuWidth[4] = "954";
 static const char dmenuLeftXoffset[4] = "288";
 
 /* commands */

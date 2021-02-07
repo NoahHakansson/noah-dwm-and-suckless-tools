@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 1000;
+const unsigned int interval = 500;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -69,5 +69,6 @@ static const struct arg args[] = {
 	{ temp, "%3s\u00b0C]  ", "/sys/class/thermal/thermal_zone1/temp" },
 	{ ram_perc, "[RAM:%3s%%]  ", NULL	      },
 	{ battery_perc, "[BAT: %3.3s%%]  ", "BAT1" },
-	{ datetime, "%s", "[%a %b %d %R] " },
+	{ run_command, "[VOL: %3.3s%%]  ", "pamixer --get-volume" },
+	{ datetime, "%s", "[%a, %b %d %R] " },
 };

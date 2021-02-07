@@ -22,6 +22,10 @@ static const char *colors[][3]      = {
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
+// Volume control constants
+static const char *upvol[]   = { "/home/noah/suckless/vol_scripts/vol_up.sh",     NULL };
+static const char *downvol[] = { "/home/noah/suckless/vol_scripts/vol_down.sh",     NULL };
+//static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -59,13 +63,14 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-static const char dmenuWidth[4] = "990";
-static const char dmenuLeftXoffset[4] = "288";
+static const char dmenuWidth[4] = "884";
+static const char dmenuXoffset[4] = "288";
+static const char dmenuYoffset[3] = "20";
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, 
-									"-z", dmenuWidth, "-x", dmenuLeftXoffset, NULL };
+	"-z", dmenuWidth, "-x", dmenuXoffset, "-y", dmenuYoffset, NULL };
 static const char *termcmd[]  = { "tilix", NULL };
 static const char *browsercmd[]  = { "brave-browser", NULL };
 
@@ -74,6 +79,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_Home,   spawn,          {.v = upvol   } },
+	{ MODKEY,                       XK_End,    spawn,          {.v = downvol } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Left,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_Right,      focusstack,     {.i = -1 } },

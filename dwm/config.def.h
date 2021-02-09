@@ -38,6 +38,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",            NULL,       NULL,       0,            1,           -1 },
 	{ "Pavucontrol",     NULL,       NULL,       0,            1,           -1 },
+	{ "Spotify",         NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -73,12 +74,14 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 	"-z", dmenuWidth, "-x", dmenuXoffset, "-y", dmenuYoffset, NULL };
 static const char *termcmd[]  = { "tilix", NULL };
 static const char *browsercmd[]  = { "brave-browser", NULL };
+static const char *volumecmd[]  = { "pavucontrol", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browsercmd } },
+	{ MODKEY|ShiftMask,             XK_v,      spawn,          {.v = volumecmd } },
 	{ MODKEY,                       XK_Home,   spawn,          {.v = upvol   } },
 	{ MODKEY,                       XK_End,    spawn,          {.v = downvol } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },

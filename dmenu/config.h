@@ -11,15 +11,15 @@ static const char *prompt      = NULL;      /* -p  option; prompt to the left of
 static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
 	[SchemeNorm] = { "#bbbbbb", "#101010" },
-	[SchemeSel] = { "#ffffff", "#005577" },
+	[SchemeSel] = { "#ffffff", "#00b8b8" },
 	[SchemeSelHighlight] = { "#ffc978", "#005577" },
 	[SchemeNormHighlight] = { "#ffc978", "#121a1c" },
 	[SchemeOut] = { "#000000", "#00ffff" },
 	[SchemeMid] = { "#ffffff", "#101010" },
 };
 /* -l and -g options; controls number of lines and columns in grid if > 0 */
-static unsigned int lines      = 7;
-static unsigned int columns    = 3;
+static unsigned int lines      = 8;
+static unsigned int columns    = 2;
 /* -h option; minimum height of a menu line */
 static unsigned int lineheight = 0;
 static unsigned int min_lineheight = 24;

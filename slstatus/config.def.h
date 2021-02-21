@@ -67,7 +67,7 @@ static const struct arg args[] = {
 	/* function format          argument */
 	{ cpu_perc, " [CPU:%3s%%,", NULL	      },
 	{ temp, "%3s\u00b0C]  ", "/sys/class/thermal/thermal_zone1/temp" },
-	{ ram_perc, "[RAM:%3s%%]  ", NULL	      },
+	{ run_command, "[%s]  ", "$HOME/suckless/scripts/ram.sh" },
 	{ battery_perc, "[BAT: %3.3s%%]  ", "BAT1" },
 	{ run_command, "[VOL: %4.4s]  ", "pamixer --get-volume-human" },
 	{ datetime, "%s", "[%a, %b %d %R] " },

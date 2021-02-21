@@ -2,8 +2,9 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 6;        /* gaps between windows */
+static const unsigned int gappx     = 3;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 0;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
@@ -35,11 +36,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                    instance         title                  tags mask     isfloating   monitor */
-	{ "Gimp",                    NULL,            NULL,                  0,            1,           -1 },
-	{ "Pavucontrol",             NULL,            NULL,                  0,            1,           -1 },
-	{ "discord",                 NULL,            NULL,                  1 << 7,       0,           -1 },
-	{ "spotify",                 NULL,            NULL,                  1 << 8,       0,           -1 },
+	/* class              instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Gimp",              NULL,     NULL,           0,         1,          0,           0,        -1 },
+	{ "Pavucontrol",       NULL,     NULL,           0,         1,          0,           0,        -1 },
+	{ "discord",           NULL,     NULL,           1 << 7,    0,          0,          -1,        -1 },
+	{ "Tilix",             NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ "St",                NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ NULL,                NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -76,6 +79,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "tilix", NULL };
 static const char *browsercmd[]  = { "brave-browser", NULL };
 static const char *volumecmd[]  = { "pavucontrol", NULL };
+static const char *filescmd[]  = { "nautilus", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -83,6 +87,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_v,      spawn,          {.v = volumecmd } }, // start volumecontrol
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = filescmd } }, // start volumecontrol
 	{ MODKEY,                       XK_Home,   spawn,          {.v = upvol   } }, // volume up
 	{ MODKEY,                       XK_End,    spawn,          {.v = downvol } }, // volume down
 	{ MODKEY|ShiftMask,             XK_End,    spawn,          {.v = mutevol } }, // volume toggle mute

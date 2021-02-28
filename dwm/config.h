@@ -24,9 +24,11 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 // Volume control constants
-static const char *upvol[]   = { "/home/noah/suckless/vol_scripts/vol_up.sh",     NULL };
-static const char *downvol[] = { "/home/noah/suckless/vol_scripts/vol_down.sh",     NULL };
-static const char *mutevol[] = { "/home/noah/suckless/vol_scripts/vol_mute.sh",  NULL };
+static const char *upvol[]   = { "/home/noah/suckless/vol_scripts/vol_up.sh",        NULL };
+static const char *downvol[] = { "/home/noah/suckless/vol_scripts/vol_down.sh",      NULL };
+static const char *mutevol[] = { "/home/noah/suckless/vol_scripts/vol_mute.sh",      NULL };
+// Scripts
+static const char *scrotShot[] = { "/home/noah/suckless/scripts/scrotShot.sh",       NULL };
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -39,7 +41,7 @@ static const Rule rules[] = {
 	/* class              instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "Gimp",              NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "Pavucontrol",       NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "discord",           NULL,     NULL,           1 << 7,    0,          0,          -1,        -1 },
+	{ "discord",           NULL,     NULL,           1 << 7,    0,          0,          -1,         0 },
 	{ "Tilix",             NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ "St",                NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,                NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
@@ -52,7 +54,7 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+	{ "[T]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
@@ -80,6 +82,7 @@ static const char *termcmd[]  = { "tilix", NULL };
 static const char *browsercmd[]  = { "brave-browser", NULL };
 static const char *volumecmd[]  = { "pavucontrol", NULL };
 static const char *filescmd[]  = { "nautilus", NULL };
+static const char *lockscreencmd[]  = { "slock", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -88,9 +91,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_v,      spawn,          {.v = volumecmd } }, // start volumecontrol
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = filescmd } }, // start volumecontrol
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockscreencmd } }, // start volumecontrol
 	{ MODKEY,                       XK_Home,   spawn,          {.v = upvol   } }, // volume up
 	{ MODKEY,                       XK_End,    spawn,          {.v = downvol } }, // volume down
 	{ MODKEY|ShiftMask,             XK_End,    spawn,          {.v = mutevol } }, // volume toggle mute
+	{ MODKEY,                       XK_Print,  spawn,          {.v = scrotShot } }, // screenshot area to clipboard
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Left,   focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_Right,  focusstack,     {.i = -1 } },
@@ -108,10 +113,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY|ControlMask,           XK_Left,  focusmon,       {.i = -1 } }, // Move focus to monitor left
-	{ MODKEY|ControlMask,           XK_Right, focusmon,       {.i = +1 } }, // Move focus to monitor right
-	{ MODKEY|ShiftMask,             XK_Left,  tagmon,         {.i = -1 } }, // Move window to monitor left
-	{ MODKEY|ShiftMask,             XK_Right, tagmon,         {.i = +1 } }, // Move window to monitor right
+	{ MODKEY|ControlMask,           XK_Left,   focusmon,       {.i = -1 } }, // Move focus to monitor left
+	{ MODKEY|ControlMask,           XK_Right,  focusmon,       {.i = +1 } }, // Move focus to monitor right
+	{ MODKEY|ShiftMask,             XK_Left,   tagmon,         {.i = -1 } }, // Move window to monitor left
+	{ MODKEY|ShiftMask,             XK_Right,  tagmon,         {.i = +1 } }, // Move window to monitor right
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

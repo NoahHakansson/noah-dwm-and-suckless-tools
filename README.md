@@ -1,4 +1,4 @@
-# noah-dwm-and-suckless-tools
+# Noah's dwm and suckless tools
 
 Personal startup file include: (uses dwm autostart patch)
 

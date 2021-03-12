@@ -84,7 +84,8 @@ static const char *termcmd[]  = { "tilix", NULL };
 static const char *browsercmd[]  = { "brave-browser", NULL };
 static const char *volumecmd[]  = { "pavucontrol", NULL };
 static const char *filescmd[]  = { "nautilus", NULL };
-static const char *lockscreencmd[]  = { "slock", NULL };
+static const char *lockAndsuspendcmd[]  = { "slock", "systemctl", "suspend", NULL };
+static const char *screenLockcmd[]  = { "slock", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -93,7 +94,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_v,      spawn,          {.v = volumecmd } }, // start volumecontrol
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = filescmd } }, // start volumecontrol
-	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockscreencmd } }, // start volumecontrol
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockAndsuspendcmd } }, // lock and suspend
+	{ MODKEY,                       XK_l,      spawn,          {.v = screenLockcmd } }, // lock screen
 	{ MODKEY,                       XK_Home,   spawn,          {.v = upvol   } }, // volume up
 	{ MODKEY,                       XK_End,    spawn,          {.v = downvol } }, // volume down
 	{ MODKEY|ShiftMask,             XK_End,    spawn,          {.v = mutevol } }, // volume toggle mute

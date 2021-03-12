@@ -1,6 +1,8 @@
 # Noah's dwm and suckless tools
+Just my WM etc.. that i use daily, just keeping this git repo for personal convenience.
+Feel free to use any of the programs or scripts here as you wish (:
 
-Personal startup file include: (uses dwm autostart patch)
+# Personal startup file include: (uses dwm autostart patch)
 
 ~/.dwm/autostart.sh
 example:

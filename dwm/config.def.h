@@ -26,11 +26,14 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 // Volume control constants
-static const char *upvol[]   = { "/home/noah/suckless/vol_scripts/vol_up.sh",        NULL };
-static const char *downvol[] = { "/home/noah/suckless/vol_scripts/vol_down.sh",      NULL };
-static const char *mutevol[] = { "/home/noah/suckless/vol_scripts/vol_mute.sh",      NULL };
+static const char *upvol[]   = { "/home/noah/suckless/scripts/vol_up.sh",        NULL };
+static const char *downvol[] = { "/home/noah/suckless/scripts/vol_down.sh",      NULL };
+static const char *mutevol[] = { "/home/noah/suckless/scripts/vol_mute.sh",      NULL };
 // Scripts
 static const char *scrotShot[] = { "/home/noah/suckless/scripts/scrotShot.sh",       NULL };
+// Screen brightness
+static const char *brightnessUp[] = { "/home/noah/suckless/scripts/brightness_up.sh",       NULL };
+static const char *brightnessDown[] = { "/home/noah/suckless/scripts/brightness_down.sh",       NULL };
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -96,9 +99,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = filescmd } }, // start volumecontrol
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockAndsuspendcmd } }, // lock and suspend
 	{ MODKEY,                       XK_l,      spawn,          {.v = screenLockcmd } }, // lock screen
-	{ MODKEY,                       XK_Home,   spawn,          {.v = upvol   } }, // volume up
-	{ MODKEY,                       XK_End,    spawn,          {.v = downvol } }, // volume down
+	{ MODKEY,                       XK_Up,     spawn,          {.v = upvol   } }, // volume up
+	{ MODKEY,                       XK_Down,   spawn,          {.v = downvol } }, // volume down
 	{ MODKEY|ShiftMask,             XK_End,    spawn,          {.v = mutevol } }, // volume toggle mute
+	{ MODKEY|ShiftMask,             XK_Up,     spawn,          {.v = brightnessUp } }, // Screen brightness up
+	{ MODKEY|ShiftMask,             XK_Down,   spawn,          {.v = brightnessDown } }, // Screen brightness down
 	{ MODKEY,                       XK_Print,  spawn,          {.v = scrotShot } }, // screenshot area to clipboard
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Left,   focusstack,     {.i = +1 } },

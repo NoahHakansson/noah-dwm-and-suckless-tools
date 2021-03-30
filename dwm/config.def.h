@@ -84,12 +84,12 @@ static const char dmenuYoffset[3] = "0";
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, 
 	"-z", dmenuWidth, "-x", dmenuXoffset, "-y", dmenuYoffset, NULL };
-static const char *termcmd[]  = { "tilix", NULL };
-static const char *browsercmd[]  = { "brave-browser", NULL };
-static const char *volumecmd[]  = { "pavucontrol", NULL };
-static const char *filescmd[]  = { "pcmanfm", NULL };
-static const char *lockAndsuspendcmd[]  = { "slock", "systemctl", "suspend", NULL };
-static const char *screenLockcmd[]  = { "slock", NULL };
+static const char *termcmd[]  = { "tilix", NULL }; // terminal
+static const char *browsercmd[]  = { "brave-browser", NULL }; // browser
+static const char *volumecmd[]  = { "pavucontrol", NULL }; // audio control panel
+static const char *filescmd[]  = { "pcmanfm", NULL }; // file manager
+static const char *lockAndsuspendcmd[]  = { "slock", "systemctl", "suspend", NULL }; // lock screen + suspend
+static const char *screenLockcmd[]  = { "slock", NULL }; // lock screen
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */

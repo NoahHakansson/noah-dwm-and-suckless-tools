@@ -87,7 +87,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "tilix", NULL };
 static const char *browsercmd[]  = { "brave-browser", NULL };
 static const char *volumecmd[]  = { "pavucontrol", NULL };
-static const char *filescmd[]  = { "nautilus", NULL };
+static const char *filescmd[]  = { "pcmanfm", NULL };
 static const char *lockAndsuspendcmd[]  = { "slock", "systemctl", "suspend", NULL };
 static const char *screenLockcmd[]  = { "slock", NULL };
 

@@ -14,11 +14,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=11" };
 static const char dmenufont[]       = "monospace:size=11";
-static const char col_gray1[]       = "#101010"; // background color 
-static const char col_gray2[]       = "#444444"; // inactive window border color
-static const char col_gray3[]       = "#ffffff"; // font color
-static const char col_gray4[]       = "#ffffff"; // current tag and window font color
-static const char col_cyan[]        = "#00b8b8"; // top bar second "color" and active window border color
+static const char col_gray1[]       = "#1d2021"; // background color 
+static const char col_gray2[]       = "#7c6f64"; // inactive window border color
+static const char col_gray3[]       = "#ebdbb2"; // font color
+static const char col_gray4[]       = "#ebdbb2"; // current tag and window font color
+static const char col_cyan[]        = "#458588"; // top bar second "color" and active window border color
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -43,14 +43,16 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class              instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",              NULL,     NULL,           0,         1,          0,           1,        -1 },
-	{ "Mail",              NULL,     NULL,           0,         1,          0,           1,        -1 },
-	{ "Pavucontrol",       NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "discord",           NULL,     NULL,           1 << 7,    0,          0,          -1,         0 },
-	{ "Tilix",             NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ "St",                NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ NULL,                NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	/* class           instance  title                 tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Gimp",           NULL,     NULL,                   0,         1,          0,           1,        -1 },
+	{  NULL,           "zoom",   "Chat",                  0,         1,          0,           1,        -1 },
+	{ "Tilix",        "tilix",   "Tilix: pulsemixer",     0,         1,          0,           1,        -1 },
+	{ "Mail",           NULL,     NULL,                   0,         1,          0,           1,        -1 },
+	{ "Pavucontrol",    NULL,     NULL,                   0,         1,          0,           0,        -1 },
+	{ "discord",        NULL,     NULL,                   1 << 7,    0,          0,          -1,         0 },
+	{ "Tilix",          NULL,     NULL,                   0,         0,          1,           0,        -1 },
+	{ "St",             NULL,     NULL,                   0,         0,          1,           0,        -1 },
+	{ NULL,             NULL,     "Event Tester",         0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -105,10 +107,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_End,    spawn,          {.v = mutevol } }, // volume toggle mute
 	{ MODKEY|ShiftMask,             XK_Up,     spawn,          {.v = brightnessUp } }, // Screen brightness up
 	{ MODKEY|ShiftMask,             XK_Down,   spawn,          {.v = brightnessDown } }, // Screen brightness down
-	{ MODKEY,                       XK_Print,  spawn,          {.v = scrotShot } }, // screenshot area to clipboard
+	{ MODKEY|ControlMask,           XK_p,      spawn,          {.v = scrotShot } }, // screenshot area to clipboard
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_Left,   focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_Right,  focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_Left,   focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_Right,  focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_j,      setmfact,       {.f = -0.05} }, // decrease master size

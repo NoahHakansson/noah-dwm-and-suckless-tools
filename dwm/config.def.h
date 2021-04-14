@@ -12,9 +12,9 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=11" };
+static const char *fonts[]          = { "monospace:size=11", "JetBrainsMono Nerd Font Regular:size=11" };
 static const char dmenufont[]       = "monospace:size=11";
-static const char col_gray1[]       = "#1d2021"; // background color 
+static const char col_gray1[]       = "#1d2021"; // background color
 static const char col_gray2[]       = "#7c6f64"; // inactive window border color
 static const char col_gray3[]       = "#ebdbb2"; // font color
 static const char col_gray4[]       = "#ebdbb2"; // current tag and window font color
@@ -43,16 +43,19 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class           instance  title                 tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",           NULL,     NULL,                   0,         1,          0,           1,        -1 },
-	{  NULL,           "zoom",   "Chat",                  0,         1,          0,           1,        -1 },
-	{ "Tilix",        "tilix",   "Tilix: pulsemixer",     0,         1,          0,           1,        -1 },
-	{ "Mail",           NULL,     NULL,                   0,         1,          0,           1,        -1 },
-	{ "Pavucontrol",    NULL,     NULL,                   0,         1,          0,           0,        -1 },
-	{ "discord",        NULL,     NULL,                   1 << 7,    0,          0,          -1,         0 },
-	{ "Tilix",          NULL,     NULL,                   0,         0,          1,           0,        -1 },
-	{ "St",             NULL,     NULL,                   0,         0,          1,           0,        -1 },
-	{ NULL,             NULL,     "Event Tester",         0,         0,          0,           1,        -1 }, /* xev */
+	/* class                instance  title                 tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Gimp",                NULL,     NULL,                   0,         1,          0,           1,        -1 },
+	{ "Wireshark",           NULL,     NULL,                   0,         0,          0,           1,        -1 },
+	{ "qalculate-gtk",       NULL,     NULL,                   0,         1,          0,           1,        -1 },
+	{ "Blueman-manager",     NULL,     NULL,                   0,         1,          0,           1,        -1 },
+	{  NULL,                 "zoom",   "Chat",                  0,         1,          0,           1,        -1 },
+	{ "Tilix",               "tilix",  "Tilix: pulsemixer",     0,         1,          0,           1,        -1 },
+	{ "Mail",                NULL,     NULL,                   0,         1,          0,           1,        -1 },
+	{ "Pavucontrol",         NULL,     NULL,                   0,         1,          0,           0,        -1 },
+	{ "discord",             NULL,     NULL,                   1 << 7,    0,          0,          -1,         0 },
+	{ "Tilix",               NULL,     NULL,                   0,         0,          1,           0,        -1 },
+	{ "St",                  NULL,     NULL,                   0,         0,          1,           0,        -1 },
+	{ NULL,                  NULL,     "Event Tester",         0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -84,7 +87,7 @@ static const char dmenuYoffset[3] = "0";
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, 
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4,
 	"-z", dmenuWidth, "-x", dmenuXoffset, "-y", dmenuYoffset, NULL };
 static const char *termcmd[]  = { "tilix", NULL }; // terminal
 static const char *browsercmd[]  = { "brave-browser", NULL }; // browser
@@ -100,8 +103,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_v,      spawn,          {.v = volumecmd } }, // start volumecontrol
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = filescmd } }, // start volumecontrol
-	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockAndsuspendcmd } }, // lock and suspend
-	{ MODKEY,                       XK_l,      spawn,          {.v = screenLockcmd } }, // lock screen
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = lockAndsuspendcmd } }, // lock and suspend
+	{ MODKEY,                       XK_s,      spawn,          {.v = screenLockcmd } }, // lock screen
 	{ MODKEY,                       XK_Up,     spawn,          {.v = upvol   } }, // volume up
 	{ MODKEY,                       XK_Down,   spawn,          {.v = downvol } }, // volume down
 	{ MODKEY|ShiftMask,             XK_End,    spawn,          {.v = mutevol } }, // volume toggle mute
@@ -109,8 +112,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Down,   spawn,          {.v = brightnessDown } }, // Screen brightness down
 	{ MODKEY|ControlMask,           XK_p,      spawn,          {.v = scrotShot } }, // screenshot area to clipboard
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_Left,   focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_Right,  focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_h,      focusstack,     {.i = -1 } },        // move down in stack
+	{ MODKEY,                       XK_l,      focusstack,     {.i = +1 } },        // move up in stack
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_j,      setmfact,       {.f = -0.05} }, // decrease master size
@@ -125,10 +128,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY|ControlMask,           XK_Left,   focusmon,       {.i = -1 } }, // Move focus to monitor left
-	{ MODKEY|ControlMask,           XK_Right,  focusmon,       {.i = +1 } }, // Move focus to monitor right
-	{ MODKEY|ShiftMask,             XK_Left,   tagmon,         {.i = -1 } }, // Move window to monitor left
-	{ MODKEY|ShiftMask,             XK_Right,  tagmon,         {.i = +1 } }, // Move window to monitor right
+	{ MODKEY|ControlMask,           XK_h,      focusmon,       {.i = -1 } }, // Move focus to monitor left
+	{ MODKEY|ControlMask,           XK_l,      focusmon,       {.i = +1 } }, // Move focus to monitor right
+	{ MODKEY|ShiftMask,             XK_h,      tagmon,         {.i = -1 } }, // Move window to monitor left
+	{ MODKEY|ShiftMask,             XK_l,      tagmon,         {.i = +1 } }, // Move window to monitor right
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

@@ -48,11 +48,12 @@ static const Rule rules[] = {
 	{ "Wireshark",           NULL,     NULL,                   0,         0,          0,           1,        -1 },
 	{ "qalculate-gtk",       NULL,     NULL,                   0,         1,          0,           1,        -1 },
 	{ "Blueman-manager",     NULL,     NULL,                   0,         1,          0,           1,        -1 },
-	{  NULL,                 "zoom",   "Chat",                  0,         1,          0,           1,        -1 },
-	{ "Tilix",               "tilix",  "Tilix: pulsemixer",     0,         1,          0,           1,        -1 },
+	{  NULL,                 "zoom",   "Chat",                 0,         1,          0,           1,        -1 },
+	{ "Tilix",               "tilix",  "Tilix: pulsemixer",    0,         1,          0,           1,        -1 },
 	{ "Mail",                NULL,     NULL,                   0,         1,          0,           1,        -1 },
 	{ "Pavucontrol",         NULL,     NULL,                   0,         1,          0,           0,        -1 },
 	{ "discord",             NULL,     NULL,                   1 << 7,    0,          0,          -1,         0 },
+	{ "Alacritty",           NULL,     NULL,                   0,         0,          1,           0,        -1 },
 	{ "Tilix",               NULL,     NULL,                   0,         0,          1,           0,        -1 },
 	{ "St",                  NULL,     NULL,                   0,         0,          1,           0,        -1 },
 	{ NULL,                  NULL,     "Event Tester",         0,         0,          0,           1,        -1 }, /* xev */
@@ -89,7 +90,7 @@ static const char dmenuYoffset[3] = "0";
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4,
 	"-z", dmenuWidth, "-x", dmenuXoffset, "-y", dmenuYoffset, NULL };
-static const char *termcmd[]  = { "tilix", NULL }; // terminal
+static const char *termcmd[]  = { "alacritty", NULL }; // terminal
 static const char *browsercmd[]  = { "brave-browser", NULL }; // browser
 static const char *volumecmd[]  = { "pavucontrol", NULL }; // audio control panel
 static const char *filescmd[]  = { "pcmanfm", NULL }; // file manager

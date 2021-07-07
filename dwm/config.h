@@ -90,6 +90,7 @@ static const char dmenuYoffset[3] = "0";
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4,
 	"-z", dmenuWidth, "-x", dmenuXoffset, "-y", dmenuYoffset, NULL };
+static const char *roficmd[]  = { "rofi", "-show", "run", NULL }; // rofi run launcher
 static const char *termcmd[]  = { "alacritty", NULL }; // terminal
 static const char *browsercmd[]  = { "brave-browser", NULL }; // browser
 static const char *volumecmd[]  = { "pavucontrol", NULL }; // audio control panel
@@ -100,6 +101,7 @@ static const char *screenLockcmd[]  = { "slock", NULL }; // lock screen
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_r,      spawn,          {.v = roficmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_v,      spawn,          {.v = volumecmd } }, // start volumecontrol

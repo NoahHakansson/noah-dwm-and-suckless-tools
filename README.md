@@ -9,12 +9,13 @@ example:
 
 ```
 #!/bin/sh
-sh /home/noah/.screenlayout/dual-monitor.sh # Xorg monitor setup file.
+xset r rate 300 80
+setxkbmap -option caps:escape
+#feh --bg-scale ~/walls/dark-forest.jpg
+unclutter -idle 1 -jitter 2 -root -reset &
+picom &
 blueman-applet &
 sleep .5
-volumeicon &
-sleep .2
 nm-applet &
-feh --bg-scale /home/noah/pictures/dball.png
 exec slstatus
 ```

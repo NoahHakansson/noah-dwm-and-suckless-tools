@@ -14,11 +14,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar, 1 means top bar*/
 static const char *fonts[]          = { "monospace:size=11", "JetBrainsMono Nerd Font Regular:size=11" };
 static const char dmenufont[]       = "monospace:size=11";
-static const char col_gray1[]       = "#1d2021"; // background color
-static const char col_gray2[]       = "#7c6f64"; // inactive window border color
-static const char col_gray3[]       = "#ebdbb2"; // font color
-static const char col_gray4[]       = "#ebdbb2"; // current tag and window font color
-static const char col_cyan[]        = "#458588"; // top bar second "color" and active window border color
+static const char col_gray1[]       = "#1f2227"; // background color
+static const char col_gray2[]       = "#282c34"; // inactive window border color
+static const char col_gray3[]       = "#abb2bf"; // font color
+static const char col_gray4[]       = "#abb2bf"; // current tag and window font color
+static const char col_cyan[]        = "#61afef"; // top bar second "color" and active window border color
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },

@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 1000;
+const unsigned int interval = 5000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -68,7 +68,8 @@ static const struct arg args[] = {
 	{ cpu_perc, "[CPU:%3s%%,", NULL	      },
 	{ temp, "%3s\u00b0C]  ", "/sys/class/thermal/thermal_zone1/temp" },
 	{ run_command, "[%s]  ", "$HOME/suckless/scripts/ram.sh" },
-	{ battery_perc, "[BAT: %3.3s%%]  ", "BAT1" },
+	{ battery_perc, "[BAT: %3.3s%%", "BAT0" },
+	{ battery_state, " %s]  ", "BAT0" },
 	{ run_command, "[VOL: %4.4s]  ", "pamixer --get-volume-human" },
 	{ datetime, "%s", "[%a, %b %d %R] " },
 };

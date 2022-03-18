@@ -17,7 +17,7 @@ static const char dmenufont[]       = "monospace:size=11";
 static const char col_gray1[]       = "#1f2227"; // background color
 static const char col_gray2[]       = "#282c34"; // inactive window border color
 static const char col_gray3[]       = "#abb2bf"; // font color
-static const char col_gray4[]       = "#abb2bf"; // current tag and window font color
+static const char col_gray4[]       = "#1f2227"; // current tag and window font color
 static const char col_cyan[]        = "#61afef"; // top bar second "color" and active window border color
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */

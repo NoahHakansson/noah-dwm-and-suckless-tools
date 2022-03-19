@@ -62,7 +62,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.6; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
@@ -96,7 +96,7 @@ static const char *roficmd[]  = { "rofi", "-show", "run", NULL }; // rofi run la
 static const char *termcmd[]  = { "alacritty", NULL }; // terminal
 static const char *browsercmd[]  = { "brave-browser", NULL }; // browser
 static const char *volumecmd[]  = { "pavucontrol", NULL }; // audio control panel
-static const char *filescmd[]  = { "pcmanfm", NULL }; // file manager
+static const char *filescmd[]  = { "nautilus", NULL }; // file manager
 static const char *lockAndsuspendcmd[]  = { "slock", "systemctl", "suspend", NULL }; // lock screen + suspend
 static const char *screenLockcmd[]  = { "slock", NULL }; // lock screen
 

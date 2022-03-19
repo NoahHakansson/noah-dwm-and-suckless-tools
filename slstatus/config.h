@@ -66,10 +66,10 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 	{ cpu_perc, "[CPU:%3s%%,", NULL	      },
-	{ temp, "%3s\u00b0C]  ", "/sys/class/thermal/thermal_zone1/temp" },
+	{ run_command, "%3s]  ", "sensors k10temp-pci-00c3 | grep Tctl | awk '{print $2}'" },
 	{ run_command, "[%s]  ", "$HOME/suckless/scripts/ram.sh" },
-	{ battery_perc, "[BAT: %3.3s%%", "BAT0" },
+	{ battery_perc, "[BAT: %2.3s%%", "BAT0" },
 	{ battery_state, " %s]  ", "BAT0" },
-	{ run_command, "[VOL: %4.4s]  ", "pamixer --get-volume-human" },
+	{ run_command, "[VOL: %3.4s]  ", "pamixer --get-volume-human" },
 	{ datetime, "%s", "[%a, %b %d %R] " },
 };

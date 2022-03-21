@@ -65,7 +65,7 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ cpu_perc, "[CPU:%3s%%,", NULL	      },
+	{ cpu_perc, "[CPU:%2.3s%%,", NULL	      },
 	{ run_command, "%3s]  ", "sensors k10temp-pci-00c3 | grep Tctl | awk '{print $2}'" },
 	{ run_command, "[%s]  ", "$HOME/suckless/scripts/ram.sh" },
 	{ battery_perc, "[BAT: %2.3s%%", "BAT0" },

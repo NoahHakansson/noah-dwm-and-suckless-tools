@@ -31,6 +31,8 @@ static const char *downvol[] = { "/home/noah/suckless/scripts/vol_down.sh",     
 static const char *mutevol[] = { "/home/noah/suckless/scripts/vol_mute.sh",      NULL };
 // Scripts
 static const char *scrotShot[] = { "/home/noah/suckless/scripts/scrotShot.sh",       NULL };
+// Screen setup
+static const char *screenSetup[] = { "/home/noah/.screenlayout/screenSetup.sh",       NULL };
 // Screen brightness
 static const char *brightnessUp[] = { "/home/noah/suckless/scripts/brightness_up.sh",       NULL };
 static const char *brightnessDown[] = { "/home/noah/suckless/scripts/brightness_down.sh",       NULL };
@@ -115,6 +117,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_End,    spawn,          {.v = mutevol } }, // volume toggle mute
 	{ MODKEY|ShiftMask,             XK_Up,     spawn,          {.v = brightnessUp } }, // Screen brightness up
 	{ MODKEY|ShiftMask,             XK_Down,   spawn,          {.v = brightnessDown } }, // Screen brightness down
+	{ MODKEY|ShiftMask,             XK_r,   	 spawn,          {.v = screenSetup } }, // Setup screens with xlayoutdisplay
 	{ MODKEY|ControlMask,           XK_p,      spawn,          {.v = scrotShot } }, // screenshot area to clipboard
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_h,      focusstack,     {.i = -1 } },        // move down in stack

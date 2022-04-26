@@ -12,7 +12,7 @@ fi
 # sleep to counter bug of not working with dwm.
 sleep 0.2
 
-scrot -sb -f -o "/tmp/scrotShot/image.png" &&
+scrot -s -b -f -o "/tmp/scrotShot/image.png" &&
 xclip -selection clipboard -t image/png -i /tmp/scrotShot/image.png &&
 rm /tmp/scrotShot/image.png &&
 notify-send -u low "ScrotShot" "Screenshot saved to clipboard"

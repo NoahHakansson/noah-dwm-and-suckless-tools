@@ -52,7 +52,7 @@ static const Rule rules[] = {
 	{ "Blueman-manager",     NULL,     NULL,                   0,         1,          0,           1,        -1 },
 	{  "zoom",               NULL,     NULL,                   0,         1,          0,           1,        -1 },
 	{  NULL,                 "zoom",   NULL,                   0,         1,          0,           1,        -1 },
-	{  NULL,                 NULL,     "Zoom Meeting",                 0,         1,          0,           1,        -1 },
+	{  NULL,                 NULL,     "Zoom Meeting",         0,         1,          0,           1,        -1 },
 	{ "Tilix",               "tilix",  "Tilix: pulsemixer",    0,         1,          0,           1,        -1 },
 	{ "Mail",                NULL,     NULL,                   0,         1,          0,           1,        -1 },
 	{ "Pavucontrol",         NULL,     NULL,                   0,         1,          0,           0,        -1 },
